@@ -1,16 +1,25 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-const connectDB = async () => {
-  const mongoUri = process.env.MONGO_URI;
+dotenv.config();
+
+const connectDB = async (): Promise<void> => {
+  const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI;
+
   if (!mongoUri) {
-    console.warn('⚠️ WARNING: MONGO_URI environment variable is not configured!');
+    const errorMsg =
+      '❌ FATAL DATABASE ERROR: Neither MONGO_URI nor MONGODB_URI environment variable is set!\n' +
+      'Please configure MONGO_URI in your environment variables (.env locally or Render Dashboard).';
+    console.error(errorMsg);
+    throw new Error(errorMsg);
   }
 
   try {
-    const conn = await mongoose.connect(mongoUri || 'mongodb://127.0.0.1:27017/ev-charge-india');
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    const conn = await mongoose.connect(mongoUri);
+    console.log(`✅ MongoDB Connected Successfully: ${conn.connection.host}`);
   } catch (error: any) {
-    console.error(`MongoDB Connection Error: ${error.message}`);
+    console.error(`❌ MongoDB Connection Failure: ${error.message}`);
+    throw error;
   }
 };
 
