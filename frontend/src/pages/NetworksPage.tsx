@@ -58,7 +58,7 @@ const NetworksPage = () => {
         <div className="absolute top-0 right-0 -mt-16 -mr-16 text-emerald-700/20">
           <Zap className="h-64 w-64" />
         </div>
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl 2xl:max-w-[1920px] mx-auto relative z-10">
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl mb-4">
             Supported Networks
           </h1>
@@ -68,8 +68,8 @@ const NetworksPage = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl 2xl:max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
           {networks.map((network, index) => (
             <div key={index} className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow duration-200">
               <div className={`inline-flex items-center justify-center p-3 rounded-xl mb-4 ${network.color}`}>

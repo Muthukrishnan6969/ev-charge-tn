@@ -39,7 +39,7 @@ const SearchPage = () => {
   return (
     <div className="flex-1 flex flex-col md:flex-row h-[calc(100vh-64px)] overflow-hidden">
       {/* List View */}
-      <div className="w-full md:w-[400px] lg:w-[500px] h-full flex flex-col bg-white shadow-xl z-10">
+      <div className="w-full md:w-[400px] lg:w-[500px] xl:w-[600px] 2xl:w-[800px] h-[50vh] md:h-full flex flex-col bg-white shadow-xl z-10">
         <div className="p-4 border-b border-slate-200">
           <h2 className="text-xl font-bold text-slate-900">
             {query ? `Results for "${query}"` : 'All Charging Stations'}
@@ -110,7 +110,7 @@ const SearchPage = () => {
       </div>
 
       {/* Map View */}
-      <div className="flex-1 h-full relative z-0">
+      <div className="flex-1 h-[50vh] md:h-full relative z-0">
         <MapContainer 
           center={mapCenter as [number, number]} 
           zoom={mapZoom} 

@@ -132,7 +132,7 @@ const RoutePlannerPage = () => {
   return (
     <div className="flex-grow flex flex-col bg-slate-50">
       <div className="bg-emerald-700 text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-7xl 2xl:max-w-[1920px] mx-auto text-center">
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
             Tamil Nadu Trip Planner
           </h1>
@@ -142,7 +142,7 @@ const RoutePlannerPage = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8">
+      <div className="max-w-7xl 2xl:max-w-[1920px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8">
         {/* Sidebar Form */}
         <div className="w-full lg:w-1/3 space-y-6">
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">

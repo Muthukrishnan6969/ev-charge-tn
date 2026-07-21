@@ -38,7 +38,7 @@ const StationDetailsPage = () => {
 
   return (
     <div className="flex-1 bg-slate-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto space-y-6">
+      <div className="max-w-5xl lg:max-w-7xl 2xl:max-w-[1920px] mx-auto space-y-6">
         
         {/* Header */}
         <div className="bg-white rounded-2xl shadow-sm p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">

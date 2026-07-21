@@ -26,7 +26,7 @@ const LandingPage = () => {
           <div className="absolute top-40 -left-40 w-[500px] h-[500px] rounded-full bg-blue-500/20 blur-[100px]"></div>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+        <div className="relative z-10 max-w-7xl 2xl:max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ const LandingPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6"
+            className="text-5xl md:text-7xl 2xl:text-8xl 3xl:text-9xl font-extrabold text-white tracking-tight leading-tight mb-6"
           >
             Powering Your <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
@@ -53,7 +53,7 @@ const LandingPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-300 max-w-2xl mb-12"
+            className="text-lg md:text-xl 2xl:text-2xl text-slate-300 max-w-2xl 2xl:max-w-4xl mb-12"
           >
             Find compatible EV charging stations across India. Filter by speed, availability, and network. Plan your routes effortlessly.
           </motion.p>
@@ -87,7 +87,7 @@ const LandingPage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24">
+      <section className="w-full max-w-7xl 2xl:max-w-[1920px] mx-auto px-4 py-24">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-slate-900">Why choose EV Charge India?</h2>
           <p className="mt-4 text-slate-600 max-w-2xl mx-auto">We provide the most comprehensive and up-to-date database of EV charging stations across all major networks in India.</p>
