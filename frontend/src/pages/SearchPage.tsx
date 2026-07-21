@@ -1,11 +1,11 @@
-import { useState } from 'react';
+
 import { useSearchParams, useNavigate } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import { getStations } from '../services/api';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import { MapPin, Zap, Star, Filter } from 'lucide-react';
+import { MapPin, Zap, Star } from 'lucide-react';
 
 // Fix Leaflet icon issue
 delete (L.Icon.Default.prototype as any)._getIconUrl;

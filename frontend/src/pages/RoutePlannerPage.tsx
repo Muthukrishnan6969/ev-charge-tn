@@ -1,4 +1,4 @@
-import { MapPin, Navigation, BatteryCharging, Car, Zap, CheckCircle, Clock, Info, Banknote, Bike, Bus } from 'lucide-react';
+import { MapPin, Navigation, BatteryCharging, Car, Zap, CheckCircle, Banknote, Bike, Bus } from 'lucide-react';
 import { useState } from 'react';
 import { TNCities, TNEvStations } from '../data/tnDirectory';
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';

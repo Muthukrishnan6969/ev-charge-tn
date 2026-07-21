@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router';
+import { useParams } from 'react-router';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { getStationById, toggleFavorite } from '../services/api';
 import { MapPin, Zap, Star, Navigation, Clock, Phone, Heart, CheckCircle, XCircle } from 'lucide-react';
@@ -21,7 +21,7 @@ const StationDetailsPage = () => {
 
   const favoriteMutation = useMutation({
     mutationFn: () => toggleFavorite(id as string),
-    onSuccess: (newFavorites) => {
+    onSuccess: () => {
       // Assuming context has a way to update or we fetch profile again
       // For MVP, we can invalidate profile or just let the button state manage optimistically
       queryClient.invalidateQueries({ queryKey: ['profile'] });
