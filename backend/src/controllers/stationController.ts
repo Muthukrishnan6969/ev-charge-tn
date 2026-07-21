@@ -92,3 +92,16 @@ export const getStationById = async (req: Request, res: Response) => {
     res.status(500).json({ message: error.message || 'Server Error' });
   }
 };
+
+// @desc    Get total count of charging stations
+// @route   GET /api/stations/count
+// @access  Public
+export const getStationCount = async (req: Request, res: Response) => {
+  try {
+    const count = await ChargingStation.countDocuments();
+    res.json({ count, message: `Connected to DB. Total stations: ${count}` });
+  } catch (error: any) {
+    console.error(`❌ [API /api/stations/count] Error:`, error.message);
+    res.status(500).json({ message: error.message || 'Server Error' });
+  }
+};
