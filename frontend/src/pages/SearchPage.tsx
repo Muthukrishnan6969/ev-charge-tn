@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import { getStations, seedStations } from '../services/api';
@@ -20,21 +20,33 @@ const SearchPage = () => {
   const navigate = useNavigate();
   const [isSeeding, setIsSeeding] = useState(false);
   const [seedMessage, setSeedMessage] = useState('');
+  const [countdown, setCountdown] = useState(0);
 
   const query = searchParams.get('q') || '';
   const typeFilter = searchParams.get('type') || '';
   const minRatingFilter = searchParams.get('minRating') || '';
 
-  const { data: stations, isLoading, isError, refetch } = useQuery({
+  const { data: stations, isLoading, isError, refetch, failureCount } = useQuery({
     queryKey: ['stations', query, typeFilter, minRatingFilter],
     queryFn: () => getStations({ 
       ...(query && { city: query }),
       ...(typeFilter && { type: typeFilter }),
       ...(minRatingFilter && { minRating: minRatingFilter })
     }),
-    retry: 2,
-    retryDelay: 2000,
+    retry: 6,           // retry up to 6 times (~60s total) to survive Render cold start
+    retryDelay: 8000,   // wait 8s between retries
   });
+
+  // Show countdown while retrying after a cold-start failure
+  useEffect(() => {
+    if (failureCount > 0 && isLoading) {
+      setCountdown(8);
+      const interval = setInterval(() => {
+        setCountdown(prev => (prev <= 1 ? 0 : prev - 1));
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [failureCount, isLoading]);
 
   const handleSeedData = async () => {
     setIsSeeding(true);
@@ -91,7 +103,16 @@ const SearchPage = () => {
           {isLoading ? (
             <div className="flex flex-col items-center justify-center py-10 space-y-3">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
-              <p className="text-xs text-slate-500">Connecting to server...</p>
+              {failureCount === 0 ? (
+                <p className="text-xs text-slate-500">Connecting to server...</p>
+              ) : (
+                <div className="text-center space-y-1">
+                  <p className="text-xs font-medium text-amber-700">Backend is waking up (Render free tier)...</p>
+                  <p className="text-xs text-slate-500">
+                    Attempt {failureCount + 1}/7 — retrying{countdown > 0 ? ` in ${countdown}s` : '...'}
+                  </p>
+                </div>
+              )}
             </div>
           ) : isError ? (
             <div className="text-center py-10 px-4 space-y-3 bg-amber-50 rounded-xl border border-amber-200">

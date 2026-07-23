@@ -261,6 +261,23 @@ export const dummyStations = [
     network: 'ChargeZone',
     contactNumber: '1800-123-4567',
     photos: []
+  },
+  // Tirupur
+  {
+    name: 'Zeon Charging - Tirupur Avinashi Road',
+    address: 'Avinashi Road, Near Pushpa Theatre Junction',
+    city: 'Tirupur',
+    state: 'Tamil Nadu',
+    pinCode: '641602',
+    location: { type: 'Point', coordinates: [77.3411, 11.1085] },
+    chargers: [{ type: 'CCS2', powerKw: 60, count: 1, status: 'Available', pricing: '₹18/kWh' }],
+    amenities: ['Restrooms', 'Cafe', 'Shopping'],
+    rating: 4.5,
+    reviewsCount: 85,
+    open24x7: true,
+    network: 'Zeon Charging',
+    contactNumber: '0422-350-4888',
+    photos: []
   }
 ];
 

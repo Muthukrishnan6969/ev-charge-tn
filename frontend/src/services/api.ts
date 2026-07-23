@@ -7,7 +7,7 @@ console.log(`[Frontend Config] Active Base API URL: ${API_URL}`);
 
 export const api = axios.create({
   baseURL: API_URL,
-  timeout: 20000, // 20s timeout to account for Render free-tier cold starts
+  timeout: 60000, // 60s timeout to account for Render free-tier cold starts
   headers: {
     'Content-Type': 'application/json',
   },
