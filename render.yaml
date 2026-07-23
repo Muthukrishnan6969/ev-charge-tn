@@ -29,4 +29,4 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        value: https://ev-charger-ld80.onrender.com
+        value: https://ev-charge-1fz5.onrender.com
